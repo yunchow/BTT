@@ -40,7 +40,7 @@ public class Main {
         trainA.setLabelName("甲火车");
         trainA.setDirection(Movable.DERECTION_RIGHT);
         trainA.setCurrentPosition(0);
-        trainA.setSpeed(MathUtils.divide(150, 60));
+        trainA.setSpeed(MathUtils.divide(150, 60)); // 甲火车速度
         trainA.setRoad(road);
         trainA.setPriority(Thread.MAX_PRIORITY);
         System.out.println(trainA);
@@ -49,8 +49,8 @@ public class Main {
         Train trainB = new Train(barrier, wbarrier);
         trainB.setLabelName("乙火车");
         trainB.setDirection(Movable.DERECTION_LEFT);
-        trainB.setCurrentPosition(Road.DEFAULT_LENGTH);
-        trainB.setSpeed(MathUtils.divide(200, 60));
+        trainB.setCurrentPosition(road.getLength());
+        trainB.setSpeed(MathUtils.divide(200, 60)); // 乙火车速度
         trainB.setRoad(road);
         trainB.setPriority(Thread.MAX_PRIORITY);
         System.out.println(trainB);
@@ -60,7 +60,7 @@ public class Main {
         bird.setLabelName("小鸟");
         bird.setDirection(Movable.DERECTION_RIGHT);
         bird.setCurrentPosition(0);
-        bird.setSpeed(MathUtils.divide(400, 60));
+        bird.setSpeed(MathUtils.divide(400, 60));  // 小鸟速度
         bird.setRoad(road);
         bird.setPriority(Thread.MAX_PRIORITY);
         System.out.println(bird);

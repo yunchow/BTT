@@ -5,7 +5,7 @@ package com.btt.app;
  * Created by zhouyun on 2016/8/15.
  */
 public class Road {
-    public static final int DEFAULT_LENGTH = 220; // 默认120公里
+    public static final int DEFAULT_LENGTH = 120; // 默认120公里
 
     private volatile double length;             // 道路长度
     private volatile boolean close = false;  // 道路是否关闭
