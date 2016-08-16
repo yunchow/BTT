@@ -35,6 +35,6 @@ public class Clock extends Thread {
             }
             //startBarrier.reset();
         }
-        System.out.println("时钟结束");
+        //System.out.println("时钟结束");
     }
 }

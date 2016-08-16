@@ -23,7 +23,6 @@ public class Road {
     }
 
     public void closeTheRoad() {
-        System.out.println("两火车发生的碰撞");
         close = true;
     }
 

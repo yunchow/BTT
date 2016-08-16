@@ -16,9 +16,7 @@ public class Watcher extends Thread {
     private Train trainB;
     private Bird bird;
     private Clock clock;
-    private volatile boolean overtake = false; // 超车标志
-
-    private String[] pos = new String[Road.DEFAULT_LENGTH + 1];
+    private String[] pos; // 所有移动物体位置坐标
 
     public Watcher(CyclicBarrier startBarrier, CyclicBarrier watchBarrier) {
         this.startBarrier = startBarrier;
@@ -35,15 +33,17 @@ public class Watcher extends Thread {
             if (bird.crashWith(trainB)) {
                 bird.directLeft();
                 bird.setCurrentPosition(trainB.getCurrentPosition());
-                overtake = true;
             }
-            if (overtake && bird.crashWith(trainA)) {
-                bird.setCurrentPosition(trainA.getCurrentPosition());
+            if (bird.crashWith(trainA)) {
                 bird.directRight();
+                bird.setCurrentPosition(trainA.getCurrentPosition());
             }
             printSnapShort();
         }
-        System.out.println("观察者退出");
+        System.out.println();
+        System.out.println("两火车发生的碰撞，程序退出！");
+        System.out.println("小鸟总距离：" + bird.getTotalLen() + " 折返次数：" + bird.getReverseTimes());
+        //System.out.println("观察者退出");
     }
 
     private void printSnapShort() {
@@ -53,6 +53,7 @@ public class Watcher extends Thread {
         int birdPos = (int)bird.getCurrentPosition();
         int aPos = (int)trainA.getCurrentPosition();
         int bPos = (int)trainB.getCurrentPosition();
+        pos = new String[(int)road.getLength() + 1];
         Arrays.fill(pos, "_");
         pos[0] = "" + Clock.seconds;
         if (birdPos > 0 && birdPos <= Road.DEFAULT_LENGTH)
@@ -63,7 +64,6 @@ public class Watcher extends Thread {
             System.out.print(po);
         }
         System.out.println();
-        System.out.println("小鸟总距离：" + bird.getTotalLen() + " 折返次数：" + bird.getReverseTimes());
         //System.out.println(snap);
     }
 

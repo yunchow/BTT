@@ -37,12 +37,13 @@ public abstract class Movable extends Thread {
      * @return
      */
     public boolean crashWith(Movable movable) {
-        if (this.moveToRight()) {
+        if (this.moveToRight() && movable.moveToLeft()) {
             return this.currentPosition >= movable.currentPosition;
-        } else if (this.moveToLeft()) {
+        }
+        if (this.moveToLeft() && movable.moveToRight()) {
             return this.currentPosition <= movable.currentPosition;
         }
-        throw new IllegalStateException("Direction error.");
+        return false;
     }
 
     @Override
@@ -66,7 +67,7 @@ public abstract class Movable extends Thread {
                 watchBarrier.reset();
             }
         }
-        System.out.println(getLabelName() + " 退出");
+        //System.out.println(getLabelName() + " 退出");
     }
 
     /**

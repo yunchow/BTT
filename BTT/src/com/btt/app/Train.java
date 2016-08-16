@@ -18,6 +18,8 @@ public class Train extends Movable {
     public void move() {
         //System.out.println(getLabelName() + ">>>> " + Clock.seconds);
         double len = MathUtils.multiply(getSpeed(), getDirection());
+        //System.out.println(">>"+ getLabelName() +"移动距离为：" + len + " , 当前位置为：" + getCurrentPosition());
         setCurrentPosition(MathUtils.add(getCurrentPosition(), len));
+        //System.out.println(">>"+ getLabelName() +"移动距离为：" + len + " , 当前位置为：" + getCurrentPosition());
     }
 }
