@@ -47,7 +47,7 @@ public class Main {
 
         // 3， 初始化火车B， 从右向左行驶
         Train trainB = new Train(barrier, wbarrier);
-        trainB.setLabelName("已火车");
+        trainB.setLabelName("乙火车");
         trainB.setDirection(Movable.DERECTION_LEFT);
         trainB.setCurrentPosition(Road.DEFAULT_LENGTH);
         trainB.setSpeed(MathUtils.divide(200, 60));
