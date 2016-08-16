@@ -23,7 +23,7 @@ public class Bird extends Movable {
         double len = MathUtils.multiply(getSpeed(), getDirection());
         totalLen = MathUtils.add(totalLen, getSpeed());
         setCurrentPosition(MathUtils.add(getCurrentPosition(), len));
-        System.out.println(toString());
+        System.out.println("小鸟移动距离为：" + len + " , 当前位置为：" + getCurrentPosition());
     }
 
     @Override
