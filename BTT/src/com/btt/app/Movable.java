@@ -4,7 +4,7 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 /**
- * 所有能移动的抽象
+ * 所有能移动物体的抽象
  * Created by zhouyun on 2016/8/15.
  */
 public abstract class Movable extends Thread {
@@ -16,10 +16,10 @@ public abstract class Movable extends Thread {
 
     private String labelName;
 
-    private Road road;     // 所处道路
-    private volatile int direction; // 方向
-    private volatile double speed;     // 速度
-    private volatile double currentPosition; // 当前位置
+    private Road road;                        // 所处道路
+    private volatile int direction;           // 方向
+    private volatile double speed;            // 速度
+    private volatile double currentPosition;  // 当前位置
 
     public Movable(CyclicBarrier startBarrier, CyclicBarrier watchBarrier) {
         this.startBarrier = startBarrier;
@@ -79,9 +79,6 @@ public abstract class Movable extends Thread {
         if (moveToLeft()) {
             this.direction = DERECTION_RIGHT;
         }
-        System.out.println("######### " + getDirection());
-        System.out.println("######### toLeft " + (Integer.valueOf(direction).equals(DERECTION_LEFT)));
-        System.out.println("######### toRight " + ((Integer.valueOf(direction).equals(DERECTION_RIGHT))));
     }
 
     public void directRight() {
