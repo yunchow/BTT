@@ -29,14 +29,15 @@ public class Watcher extends Thread {
             await();
             if (trainA.crashWith(trainB)) {
                 doCrash();
-            }
-            if (bird.crashWith(trainB)) {
-                bird.directLeft();
-                bird.setCurrentPosition(trainB.getCurrentPosition());
-            }
-            if (bird.crashWith(trainA)) {
-                bird.directRight();
-                bird.setCurrentPosition(trainA.getCurrentPosition());
+            } else {
+                if (bird.crashWith(trainB)) {
+                    bird.directLeft();
+                    bird.setCurrentPosition(trainB.getCurrentPosition());
+                }
+                if (bird.crashWith(trainA)) {
+                    bird.directRight();
+                    bird.setCurrentPosition(trainA.getCurrentPosition());
+                }
             }
             printSnapShort();
         }
