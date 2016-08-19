@@ -24,4 +24,8 @@ public final class MathUtils {
     public static double multiply(double d1, double d2) {
         return new BigDecimal(d1).multiply(new BigDecimal(d2), MathContext.DECIMAL128).setScale(LEN, BigDecimal.ROUND_HALF_UP).doubleValue();
     }
+
+    public static void main(String[] args) {
+        System.out.println(9f);
+    }
 }
